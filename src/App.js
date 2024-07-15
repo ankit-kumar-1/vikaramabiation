@@ -2,6 +2,7 @@
 import './App.css';
 import Carousel from './components/Carousel';
 import Navbar from './components/Navbar';
+import OurStory from './components/OurStory';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
       </div>
       <div>
         <Carousel slides={slides} autoSlide={true} autoSlideInterval={3000} />
+      </div>
+      <div>
+        <OurStory />
       </div>
 
     </>
