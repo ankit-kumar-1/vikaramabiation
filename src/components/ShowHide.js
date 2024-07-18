@@ -4,7 +4,7 @@ const Section = ({ title, desc, isVisible, setIsVisible }) => {
     return (
         <div className="border border-yellow-500 p-2 shadow-xl mb-2">
             <div className="flex justify-between items-center">
-                <h3 className="font-bold text-2xl p-5">{title}</h3>
+                <h3 className="font-semibold text-2xl p-4">{title}</h3>
                 <button onClick={setIsVisible} className="cursor-pointer">
                     {isVisible ? (
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,8 +18,8 @@ const Section = ({ title, desc, isVisible, setIsVisible }) => {
                 </button>
             </div>
             {isVisible && (
-                <p className="text-lg mt-2">
-                    <span className="text-xl font-bold">Our journey began in 1996,</span>{desc}
+                <p className="text-lg">
+                    <span className="text-xl font-semibold">Our journey began in 1996,</span>{desc}
                 </p>
             )}
         </div>
@@ -36,7 +36,7 @@ const ShowHide = () => {
     return (
         <div className="m-4 shadow-xl">
             <Section
-                className="text-2xl"
+
                 title="History"
                 desc=" founded by a group of seasoned aviation professionals who shared a common vision of transforming the aviation landscape. We are also honored to hold the esteemed ISO 9001:2015 certification."
                 isVisible={visibleSection === "History"}

@@ -1,25 +1,53 @@
-import React from 'react'
-import logo from '../img/logo.jpg'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import logo from '../img/logo.jpg';
+import { Link } from 'react-router-dom';
+
 function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className='fixed top-0 left-0 w-full flex justify-between items-center border-b-2 px-7 bg-white z-50'>
-            <Link className=" flex items-center text-2xl py-4 font-bold" to="#">
-                <img src={logo} alt="logo" className=' pr-5 w-24' />
-                Vikram <span className="text-2xl text-yellow-500 px-2">Aviation</span> Pvt Ltd
+        <nav className='fixed top-0 left-0 w-full flex flex-wrap justify-between items-center border-b-2 px-4 md:px-7 bg-yellow-50 opacity-85 z-50'>
+            <Link className="flex items-center text-xl md:text-2xl py-2 font-bold" to="#">
+                <img src={logo} alt="logo" className='pr-2 md:pr-5 w-16 md:w-24' />
+                Vikram <span className="text-xl md:text-2xl text-yellow-500 px-1 md:px-2">Aviation</span> Pvt Ltd
             </Link>
-            <div >
-                <ul className=" flex ">
-                    <li className="px-2 text-yellow-500 text-xl font-bold hover:bg-yellow-300 p-2 text-center rounded-md"><Link to="/">Home</Link></li>
-                    <li className="px-2 text-gray-600 text-xl font-bold hover:bg-yellow-300 p-2 text-center rounded-md"><Link to="/about us">About Us</Link></li>
-                    <li className="px-2 text-gray-600 text-xl font-bold hover:bg-yellow-300 p-2 text-center rounded-md"><Link to="/ what we do">What We Do</Link></li>
-                    <li className="px-2 text-gray-600 text-xl font-bold hover:bg-yellow-300 p-2 text-center rounded-md"><Link to="/ame training">AME Training</Link></li>
-                    <li className="px-2 text-gray-600 text-xl font-bold hover:bg-yellow-300 p-2 text-center rounded-md"><Link to="/reach us">Reach Us</Link></li>
+
+            {/* Hamburger menu button */}
+            <button
+                onClick={toggleMenu}
+                className="md:hidden text-gray-600 focus:outline-none"
+            >
+                <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    {isOpen ? (
+                        <path fillRule="evenodd" clipRule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" />
+                    ) : (
+                        <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                    )}
+                </svg>
+            </button>
+
+            {/* Navigation menu */}
+            <div className={`${isOpen ? 'block' : 'hidden'} md:block w-full md:w-auto`}>
+                <ul className="flex flex-col md:flex-row md:space-x-4">
+                    {['Home', 'About Us', 'What We Do', 'AME Training', 'Reach Us'].map((item, index) => (
+                        <li key={index} className="text-center">
+                            <Link
+                                to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                className={`block px-3 py-2 text-lg md:text-xl font-bold ${index === 0 ? 'text-yellow-600' : 'text-gray-600'} hover:bg-yellow-300 rounded-md transition-all duration-300 ease-in-out transform hover:scale-110`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
-
-        </div>
-    )
+        </nav>
+    );
 }
 
-export default Navbar
+export default Navbar;

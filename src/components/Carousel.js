@@ -21,7 +21,7 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
     }, [current, autoSlide, autoSlideInterval]);
 
     return (
-        <div className='overflow-hidden relative mt-24 h-screen'> {/* Adjust the margin-top value if needed */}
+        <div className='overflow-hidden relative mt-24 h-3/5'> {/* Adjust the margin-top value if needed */}
             <div
                 className='flex transition-transform ease-out duration-500'
                 style={{
@@ -67,11 +67,11 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                 ))}
             </div>
 
-            <div className='absolute top-0 h-full w-full flex justify-between items-center font-extralight text-white px-14 text-7xl'>
-                <button onClick={previousSlide}>
+            <div className='absolute top-0 h-full w-full flex justify-between items-center font-extralight text-white px-14 text-7xl '>
+                <button onClick={previousSlide} className='transition-all duration-300 ease-in-out transform hover:scale-x-125'>
                     <HiChevronLeft />
                 </button>
-                <button onClick={nextSlide}>
+                <button onClick={nextSlide} className='transition-all duration-300 ease-in-out transform hover:scale-x-125'>
                     <HiChevronRight />
                 </button>
             </div>
