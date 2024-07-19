@@ -157,27 +157,20 @@ function ContactForm() {
 
                         <div className='mt-2 hover:shadow-xl w-72 sm:w-1/2'>
                             <h2 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-bold text-yellow-500 mb-2 sm:mb-4">Vikram Aviation Pvt Ltd</h2>
-                            <p className="text-sm mb-4">ISO 9001:2015 Certified</p>
+                            <p className="text-sm text-start px-5">ISO 9001:2015 Certified</p>
                             <div className="flex flex-col md:flex-row justify-between p-2 gap-2">
-                                <div className=' text-left'>
-                                    <p>Vikram Aviation Pvt Ltd</p>
-                                    <p>Plot No. 02</p>
-                                    <p>Khasra No. 348/02</p>
-                                    <p>Vill Sahabad,</p>
-                                    <p>Muhammadpur</p>
-                                    <p>Near Bansal Farm</p>
-                                    <p>New Delhi - 110061</p>
+                                <div className=' text-start p-3'>
+                                    <p>Vikram Aviation Pvt Ltd
+                                        Plot No. 02
+                                        Khasra No. 348/02
+                                        Vill Sahabad,
+                                        Muhammadpur
+                                        Near Bansal Farm
+                                        New Delhi - 110061</p>
                                 </div>
-                                <div className=' text-left'>
-                                    <p><strong>Civil Aviation (Marketing)</strong></p>
-                                    <p>+91-9654282583</p>
-                                    <p><strong>Defence Cordinator</strong></p>
-                                    <p>+91- 9891404147</p>
-                                    <p><strong>Quality Department</strong></p>
-                                    <p>+91-9675180888</p>
-                                </div>
+
                             </div>
-                            <p className="mt-3 text-blue-500">info@vikramaviation.com</p>
+                            <p className="mt-4 text-blue-500 text-start px-4">info@vikramaviation.com</p>
                         </div>
                     </div>
                 </div>

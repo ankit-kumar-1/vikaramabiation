@@ -34,8 +34,8 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                         {index === 0 && (
                             <div className='absolute inset-x-0 top-0 flex flex-col justify-start items-center text-white p-4'>
                                 <h1 className='text-2xl font-bold mb-2'>An ISO 9001:2015 Certified Company</h1>
-                                <h2 className='text-6xl font-bold mb-2 text-yellow-500'>Aviation Services</h2> <br />
-                                <h2 className='text-6xl font-bold mb-2'>Creative & Professional</h2> <br />
+                                <h2 className='text-5xl font-bold mb-2 text-yellow-500'>Aviation Services</h2> <br />
+                                <h2 className='text-5xl font-bold mb-2'>Creative & Professional</h2> <br />
                                 <p className='text-2xl font-bold text-center'>
                                     Unlocking Skies with Certified Engineering Excellence - Elevating Aviation Services through <br /> Creativity and Professionalism.
                                     Take your flight experience to new heights with our innovative <br /> and expert solutions.
@@ -45,8 +45,8 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                         {index === 1 && (
                             <div className='absolute inset-x-0 top-0 flex flex-col justify-start items-center text-white p-4'>
                                 <h1 className='text-2xl font-bold mb-2'>An ISO 9001:2015 Certified Company</h1>
-                                <h2 className=' text-6xl font-bold mb-2 text-yellow-500'>Maintenance Experts</h2> <br />
-                                <h2 className='text-6xl font-bold mb-2'>Precision and Excellence</h2>
+                                <h2 className=' text-5xl font-bold mb-2 text-yellow-500'>Maintenance Experts</h2> <br />
+                                <h2 className='text-5xl font-bold mb-2'>Precision and Excellence</h2>
                                 <br />
                                 <p className='text-2xl font-bold text-center'>
                                     Welcome to Your Trusted Aviation Maintenance Experts! With a relentless commitment to <br /> precision and excellence, we ensure the skies remain safe for all. Count on our expertise to keep <br />your aircraft soaring with utmost reliability and performance.
@@ -56,8 +56,8 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                         {index === 2 && (
                             <div className='absolute inset-x-0 top-0 flex flex-col justify-start items-center text-white p-4'>
                                 <h1 className='text-2xl font-bold mb-2'>An ISO 9001:2015 Certified Company</h1>
-                                <h2 className='text-6xl font-bold mb-2 text-yellow-500'>High-Flying Support</h2> <br />
-                                <h2 className='text-6xl font-bold mb-2'>Innovative & Expertise</h2> <br />
+                                <h2 className='text-5xl font-bold mb-2 text-yellow-500'>High-Flying Support</h2> <br />
+                                <h2 className='text-5xl font-bold mb-2'>Innovative & Expertise</h2> <br />
                                 <p className='text-2xl font-bold text-center'>
                                     Welcome to High Flying Aviation Maintenance Support - Where Innovation Meets Expertise! Trust <br /> us to keep your aircraft soaring with precision and creativity, ensuring safe and efficient <br /> operations for your journey ahead.
                                 </p>

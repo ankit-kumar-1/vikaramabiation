@@ -86,7 +86,7 @@ function WhatWeDo() {
   return (
     <div className='mt-16 bg-gray-100 p-4 sm:p-8'>
       <div className='text-center mb-8'>
-        <h1 className=' text-8xl sm:text-5xl font-bold border-b-2 border-gray-500 inline-block pb-4 pt-5'>
+        <h1 className=' text-8xl sm:text-5xl font-bold border-b-2 border-gray-500 inline-block pb-4 '>
           What <span className='text-yellow-500'>We Do</span>
         </h1>
         <p className='text-lg sm:text-2xl p-5'>

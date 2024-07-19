@@ -27,7 +27,7 @@ function OurJobTraining({ trainingList }) {
                 </h1>
             </div>
             <div className='flex flex-col lg:flex-row justify-between items-center mt-8 gap-6 lg:gap-10'>
-                <div className='w-full lg:w-1/2 p-4 md:p-5 border border-gray-300 rounded-lg text-center shadow-lg'>
+                <div className='w-full lg:w-1/2 p-4 md:p-5 border border-gray-300 rounded-lg text-center'>
                     <h2 className='text-xl md:text-2xl lg:text-3xl font-bold mb-4'>
                         VAPL On-The-Job <span className='text-yellow-500'>Training</span>
                     </h2>

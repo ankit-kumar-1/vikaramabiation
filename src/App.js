@@ -1,5 +1,5 @@
-import React from 'react';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom';
 import Carousel from './components/Carousel';
 import Navbar from './components/Navbar';
 import OurJobTraining from './components/OurJobTraining';
@@ -22,10 +22,27 @@ const trainingList = [
 ];
 
 const App = () => {
+  const location = useLocation();
+  const homeRef = useRef(null);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      window.scrollTo({
+        top: -navbarHeight,
+        behavior: 'smooth'
+      });
+    }
+  }, [location]);
+
   return (
     <>
+      <div ref={homeRef}></div>
       <Navbar />
-      <Outlet />
+      <div className="navbar-offset">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );
@@ -41,6 +58,36 @@ const Home = () => (
   </>
 );
 
+const ScrollToComponent = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.pathname.slice(1);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [location]);
+
+  return (
+    <>
+      <Carousel slides={slides} autoSlide={true} autoSlideInterval={3000} />
+      <div id="about-us"><OurStory /></div>
+      <div id="what-we-do"><WhatWeDo /></div>
+      <div id="ame-training"><OurJobTraining trainingList={trainingList} /></div>
+      <div id="reach-us"><ReachUs /></div>
+    </>
+  );
+};
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -51,24 +98,11 @@ const appRouter = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/about-us",
-        element: <OurStory />
-      },
-      {
-        path: "/what-we-do",
-        element: <WhatWeDo />
-      },
-      {
-        path: "/ame-training",
-        element: <OurJobTraining trainingList={trainingList} />
-      },
-      {
-        path: "/reach-us",
-        element: <ReachUs />
+        path: "/:section",
+        element: <ScrollToComponent />
       }
     ]
   }
 ]);
-
 
 export default appRouter;

@@ -17,13 +17,22 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <h3 className="text-2xl font-semibold mb-4">Quick Link</h3>
                         <ul className="space-y-2 text-yellow-600 font-semibold">
                             <li><Link to="/" className="text-lg hover:underline">Home</Link></li>
                             <li><Link to="/about-us" className="text-lg hover:underline">Our Story</Link></li>
                             <li><Link to="/what-we-do" className="text-lg hover:underline">What We DO</Link></li>
                             <li><Link to="/reach-us" className="text-lg hover:underline">Reach US</Link></li>
+                        </ul>
+                    </div> */}
+
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
+                        <ul className="space-y-2 text-yellow-600 font-semibold">
+                            <li> <Link to="+91-9654282583" className="text-lg ">Civil Aviation (Marketing) <br /> +91-9654282583</Link></li>
+                            <li> <Link to="+91- 9891404147" className="text-lg ">Defence Cordinator <br /> +91- 9891404147</Link></li>
+                            <li><Link to="+91-9675180888" className="text-lg ">Quality Department <br /> +91-9675180888</Link></li>
                         </ul>
                     </div>
 
@@ -45,10 +54,10 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className=' flex gap-10 text-2xl justify-center items-center'>
-                    <Link to="https://www.facebook.com/demorgia2012/" className=' hover:text-gray-800'><FaFacebook /></Link>
-                    <Link to="https://www.linkedin.com/company/demorgia-consulting-services-pvt-ltd/mycompany/" className=' hover:text-gray-800'><ImLinkedin /></Link>
-                    <Link to="https://x.com/i/flow/login?redirect_after_login=%2Fdemorgia1" className=' hover:text-gray-800'><FaSquareXTwitter /></Link>
+                <div className=' flex gap-10 text-2xl text-gray-900 justify-center items-center'>
+                    <Link to="https://www.facebook.com/demorgia2012/" className='transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110' target='blank'><FaFacebook /></Link>
+                    <Link to="https://www.linkedin.com/company/demorgia-consulting-services-pvt-ltd/mycompany/" className=' transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110' target='blank'><ImLinkedin /></Link>
+                    <Link to="https://x.com/i/flow/login?redirect_after_login=%2Fdemorgia1" className=' transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110' target='blank'><FaSquareXTwitter /></Link>
 
                 </div>
 
