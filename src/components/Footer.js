@@ -11,8 +11,8 @@ const Footer = () => {
             <div className="container">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mx-10">
                     <div>
-                        <h3 className="text-2xl font-semibold mb-4">Vikram Aviation Pvt Ltd</h3>
-                        <p className="text-lg">
+                        <h3 className="text-xl font-semibold mb-4">Vikram Aviation Pvt Ltd</h3>
+                        <p className="text-md">
                             Vikram Aviation Pvt. Ltd. is likely to adhere to aviation regulations and safety standards of DGCA (Directorate General of Civil Aviation), ensuring the highest level of professionalism and quality in its operations.
                         </p>
                     </div>
@@ -28,17 +28,17 @@ const Footer = () => {
                     </div> */}
 
                     <div>
-                        <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
+                        <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
                         <ul className="space-y-2 text-yellow-600 font-semibold">
-                            <li> <Link to="+91-9654282583" className="text-lg ">Civil Aviation (Marketing) <br /> +91-9654282583</Link></li>
-                            <li> <Link to="+91- 9891404147" className="text-lg ">Defence Cordinator <br /> +91- 9891404147</Link></li>
-                            <li><Link to="+91-9675180888" className="text-lg ">Quality Department <br /> +91-9675180888</Link></li>
+                            <li> <Link to="+91-9654282583" className="text-md ">Civil Aviation (Marketing) <br /> +91-9654282583</Link></li>
+                            <li> <Link to="+91- 9891404147" className="text-md ">Defence Cordinator <br /> +91- 9891404147</Link></li>
+                            <li><Link to="+91-9675180888" className="text-md ">Quality Department <br /> +91-9675180888</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="text-2xl font-semibold mb-4">What We Do</h3>
-                        <ul className="space-y-2 text-lg text-yellow-600 font-semibold">
+                        <h3 className="text-xl font-semibold mb-4">What We Do</h3>
+                        <ul className="space-y-2 text-md text-yellow-600 font-semibold">
                             <li>Bench Check & Calibration</li>
                             <li>GSE Calibration & Repair</li>
                             <li>Composite Maintenance</li>
@@ -47,9 +47,9 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-2xl font-semibold mb-4">Group Company</h3>
-                        <p className="text-lg">
-                            'Demorgia Consulting Services Pvt Ltd' empowering Individuals and Industries through Accurate Assessments, Strategic Consultancy, and Innovative Solutions. Unlocking Potential, Driving Growth.
+                        <h3 className="text-xl font-semibold mb-4">Group Company</h3>
+                        <p className="text-md">
+                            Demorgia Consulting Services Pvt Ltd empowering Individuals and Industries through Accurate Assessments, Strategic Consultancy, and Innovative Solutions. Unlocking Potential, Driving Growth.
                         </p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ const Footer = () => {
 
                 </div>
 
-                <div className="mt-8 text-center text-lg">
+                <div className="mt-8 text-center text-md">
                     Developed and maintained by <Link to="https://www.demorgia.com/" className="hover:underline text-yellow-600 font-semibold">Demorgia Consulting Services Pvt Ltd</Link>
                 </div>
             </div>

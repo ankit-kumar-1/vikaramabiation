@@ -14,9 +14,9 @@ function Navbar() {
 
     return (
         <nav className='fixed top-0 left-0 w-full flex flex-wrap justify-between items-center border-b-2 px-4 md:px-7 bg-gray-100 bg-opacity-85 z-50'>
-            <Link className="flex items-center text-xl md:text-2xl py-2 font-bold" to="/">
-                <img src={logo} alt="logo" className='pr-2 md:pr-5 w-16 md:w-24' />
-                Vikram <span className="text-xl md:text-2xl text-yellow-500 px-1 md:px-2">Aviation</span> Pvt Ltd
+            <Link className="flex items-center text-lg md:text-xl py-2 font-bold" to="/">
+                <img src={logo} alt="logo" className='pr-2 md:pr-5 w-12 md:w-20' />
+                Vikram <span className="text-lg md:text-xl text-yellow-500 px-1 md:px-2">Aviation</span> Pvt Ltd
             </Link>
 
             {/* Hamburger menu button */}
@@ -42,7 +42,7 @@ function Navbar() {
                             <li key={index} className="text-center">
                                 <Link
                                     to={path}
-                                    className={`block px-3 py-2 text-lg md:text-xl font-bold ${location.pathname === path ? 'text-yellow-600' : 'text-gray-600'} hover:bg-yellow-300 rounded-md transition-all duration-300 ease-in-out transform hover:scale-110`}
+                                    className={`block px-3 py-2 text-md md:text-lg font-bold ${location.pathname === path ? 'text-yellow-600' : 'text-gray-600'} hover:bg-yellow-300 rounded-md transition-all duration-300 ease-in-out transform hover:scale-110`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item}

@@ -86,10 +86,10 @@ function WhatWeDo() {
   return (
     <div className='mt-16 bg-gray-100 p-4 sm:p-8'>
       <div className='text-center mb-8'>
-        <h1 className=' text-8xl sm:text-5xl font-bold border-b-2 border-gray-500 inline-block pb-4 '>
+        <h1 className=' text-6xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 '>
           What <span className='text-yellow-500'>We Do</span>
         </h1>
-        <p className='text-lg sm:text-2xl p-5'>
+        <p className='text-md sm:text-xl p-5'>
           We offer a comprehensive range of aircraft interior products and services, <br className='hidden sm:inline' />
           including upholstery, leather, seat cushion & headset repairs, as well as the supply of ready-to-install components, meeting FAA standards.
         </p>
@@ -106,23 +106,23 @@ function WhatWeDo() {
         >
           {services.map((service, index) => (
             <div key={index} className='w-full flex-shrink-0 px-20 py-12'>
-              <h1 className='text-6xl sm:text-3xl pb-2 flex items-center justify-center'>
-                <span className=' text-8xl font-bold sm:text-6xl pr-4 sm:pr-10 text-yellow-500'>{service.icon}</span>
+              <h1 className='text-4xl sm:text-2xl pb-2 flex items-center justify-center'>
+                <span className=' text-6xl font-bold sm:text-4xl pr-4 sm:pr-10 text-yellow-500'>{service.icon}</span>
                 {service.title}
               </h1>
-              <p className='text-base sm:text-2xl pl-24'>{service.description}</p>
+              <p className='text-base sm:text-xl pl-24'>{service.description}</p>
             </div>
           ))}
         </div>
         <button
           onClick={prevSlide}
-          className=' text-2xl px-3 py-3 absolute left-2 sm:left-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 text-center'
+          className=' text-xl px-3 py-3 absolute left-2 sm:left-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 text-center'
         >
           &lt;
         </button>
         <button
           onClick={nextSlide}
-          className=' text-2xl px-3 py-3 absolute right-2 sm:right-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 '
+          className=' text-xl px-3 py-3 absolute right-2 sm:right-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 '
         >
           &gt;
         </button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 function ApplicationForm({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
@@ -7,10 +8,26 @@ function ApplicationForm({ isOpen, onClose }) {
         phone: '',
         education: '',
         experience: '',
-        whyJoin: ''
+        why_join: ''
     });
 
     const formRef = useRef(null);
+
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errors, setErrors] = useState({});
+
+    const validateForm = () => {
+        let errors = {};
+        if (!formData.name?.trim()) errors.name = "Name is required";
+        if (!formData.email?.trim()) errors.email = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = "Email is invalid";
+        if (!formData.phone?.trim()) errors.phone = "Phone is required";
+        if (!formData.education?.trim()) errors.education = "Education is required";
+        if (!formData.experience?.trim()) errors.experience = "Experience is required";
+        if (!formData.why_join?.trim()) errors.whyJoin = "Reason to join is required";
+        return errors;
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,15 +35,46 @@ function ApplicationForm({ isOpen, onClose }) {
             ...prevState,
             [name]: value
         }));
+        // Clear the error for this field when the user starts typing
+        if (errors[name]) {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                [name]: null
+            }));
+        }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
-        alert('Application submitted successfully!');
-        onClose();
-    };
+        if (isSubmitting) return;
 
+        const formErrors = validateForm();
+        if (Object.keys(formErrors).length > 0) {
+            setErrors(formErrors);
+            return;
+        }
+
+        setIsSubmitting(true);
+        try {
+            const response = await axios.post('http://localhost/vikramaviation/vikramaviation.php', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.data.message === "Application submitted successfully") {
+                alert('Application submitted successfully!');
+                onClose();
+            } else {
+                alert('Error submitting application: ' + response.data.message);
+            }
+        } catch (error) {
+            console.error('Error submitting application:', error);
+            alert('Error submitting application: ' + (error.response?.data?.message || error.message));
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (formRef.current && !formRef.current.contains(event.target)) {
@@ -65,7 +113,7 @@ function ApplicationForm({ isOpen, onClose }) {
                                 />
                             </div>
                         ))}
-                        {['experience', 'whyJoin'].map((field) => (
+                        {['experience', 'why_join'].map((field) => (
                             <div className="mb-3" key={field}>
                                 <label className="block text-gray-700 text-sm font-bold mb-1" htmlFor={field}>
                                     {field === 'experience' ? 'Relevant Experience' : 'Why do you want to join?'}

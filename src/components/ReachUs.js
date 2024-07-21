@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function ContactForm() {
     const [formData, setFormData] = useState({
         title: 'Mr.',
-        fullName: '',
-        companyName: '',
+        full_name: '',
+        company_name: '',
         country: '',
-        contactNumber: '',
+        contact_number: '',
         email: '',
         message: ''
     });
@@ -20,11 +21,37 @@ function ContactForm() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log(formData);
+        try {
+            const response = await axios.post('http://localhost/vikramaviation/reachForm.php', JSON.stringify(formData), {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.data.message === "Success") {
+                alert("Form submitted successfully!");
+                // Reset form
+                setFormData({
+                    title: 'Mr.',
+                    full_name: '',
+                    company_name: '',
+                    country: '',
+                    contact_number: '',
+                    email: '',
+                    message: ''
+                });
+                setStep(1);
+            } else {
+                alert("Error submitting form. Please try again.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to submit form. Please try again.');
+        }
     };
+
 
     const nextStep = () => setStep(step + 1);
     const prevStep = () => setStep(step - 1);
@@ -42,8 +69,8 @@ function ContactForm() {
                             </select>
                             <input
                                 type="text"
-                                name="fullName"
-                                value={formData.fullName}
+                                name="full_name"
+                                value={formData.full_name}
                                 onChange={handleChange}
                                 placeholder="Full Name*"
                                 className="border p-2 w-full sm:flex-grow"
@@ -52,8 +79,8 @@ function ContactForm() {
                         </div>
                         <input
                             type="text"
-                            name="companyName"
-                            value={formData.companyName}
+                            name="company_name"
+                            value={formData.company_name}
                             onChange={handleChange}
                             placeholder="Name of the Company"
                             className="border p-2 w-full"
@@ -75,8 +102,8 @@ function ContactForm() {
                             />
                             <input
                                 type="tel"
-                                name="contactNumber"
-                                value={formData.contactNumber}
+                                name="contact_number"
+                                value={formData.contact_number}
                                 onChange={handleChange}
                                 placeholder="Contact Number"
                                 className="border p-2 w-full sm:w-1/2"
@@ -112,16 +139,16 @@ function ContactForm() {
     return (
         <div className="container px-4">
             <div className='text-center mt-10 sm:mt-20'>
-                <h1 className='text-8xl sm:text-5xl font-bold border-b-2 border-gray-500 inline-block pb-4'>
+                <h1 className='text-6xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4'>
                     Reach <span className='text-yellow-500'>Us</span>
                 </h1>
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between my-6 sm:my-10 mx-12">
                 <div className='border border-gray-300 rounded-lg p-4 sm:p-7 w-full lg:w-1/2 mb-6 lg:mb-0'>
-                    <h2 className="text-xl sm:text-2xl font-semibold mb-2 mt-4">Please Provide Your Details*</h2>
+                    <h2 className="text-lg sm:text-xl font-semibold mb-2 mt-4">Please Provide Your Details*</h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-4 text-base sm:text-lg mt-6 sm:mt-10">
+                    <form onSubmit={handleSubmit} className="space-y-4 text-base sm:text-md mt-6 sm:mt-10">
                         {renderStep()}
                         <div className="flex justify-between mt-4">
                             {step > 1 && (
@@ -156,7 +183,7 @@ function ContactForm() {
                         </div>
 
                         <div className='mt-2 hover:shadow-xl w-72 sm:w-1/2'>
-                            <h2 className="text-xl sm:text-lg md:text-xl lg:text-2xl font-bold text-yellow-500 mb-2 sm:mb-4">Vikram Aviation Pvt Ltd</h2>
+                            <h2 className="text-lg sm:text-md md:text-lg lg:text-xl font-bold text-yellow-500 mb-2 sm:mb-4">Vikram Aviation Pvt Ltd</h2>
                             <p className="text-sm text-start px-5">ISO 9001:2015 Certified</p>
                             <div className="flex flex-col md:flex-row justify-between p-2 gap-2">
                                 <div className=' text-start p-3'>

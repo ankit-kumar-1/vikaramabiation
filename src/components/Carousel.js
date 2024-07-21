@@ -21,7 +21,7 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
     }, [current, autoSlide, autoSlideInterval]);
 
     return (
-        <div className='overflow-hidden relative mt-24 h-3/5'> {/* Adjust the margin-top value if needed */}
+        <div className='overflow-hidden relative mt-20 h-3/5'> {/* Adjust the margin-top value if needed */}
             <div
                 className='flex transition-transform ease-out duration-500'
                 style={{
@@ -76,7 +76,7 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                 </button>
             </div>
 
-            <div className='absolute bottom-0 py-4 mb-20 flex justify-center gap-3 w-full'>
+            <div className='absolute bottom-0 py-4 mb-16 flex justify-center gap-3 w-full'>
                 {slides.map((c, i) => (
                     <div onClick={() => setCurrent(i)} key={i} className={`cursor-pointer rounded-full w-3 h-3 ${i === current ? 'bg-white' : ' bg-gray-300'}`}></div>
                 ))}
