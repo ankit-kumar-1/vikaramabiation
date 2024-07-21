@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ContactForm() {
     const [formData, setFormData] = useState({
@@ -31,7 +33,7 @@ function ContactForm() {
             });
 
             if (response.data.message === "Success") {
-                alert("Form submitted successfully!");
+                toast.success("Form submitted successfully!");
                 // Reset form
                 setFormData({
                     title: 'Mr.',
@@ -44,11 +46,11 @@ function ContactForm() {
                 });
                 setStep(1);
             } else {
-                alert("Error submitting form. Please try again.");
+                toast.error("Error submitting form. Please try again.");
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Failed to submit form. Please try again.');
+            toast.error('Failed to submit form. Please try again.');
         }
     };
 
@@ -138,6 +140,7 @@ function ContactForm() {
 
     return (
         <div className="container px-4">
+            <ToastContainer position="bottom-right" autoClose={5000} />
             <div className='text-center mt-10 sm:mt-20'>
                 <h1 className='text-6xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4'>
                     Reach <span className='text-yellow-500'>Us</span>

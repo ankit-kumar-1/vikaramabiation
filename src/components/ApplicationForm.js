@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ApplicationForm({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
@@ -63,14 +65,14 @@ function ApplicationForm({ isOpen, onClose }) {
             });
 
             if (response.data.message === "Application submitted successfully") {
-                alert('Application submitted successfully!');
+                toast.success('Application submitted successfully!');
                 onClose();
             } else {
-                alert('Error submitting application: ' + response.data.message);
+                toast.error('Error submitting application: ' + response.data.message);
             }
         } catch (error) {
             console.error('Error submitting application:', error);
-            alert('Error submitting application: ' + (error.response?.data?.message || error.message));
+            toast.error('Error submitting application: ' + (error.response?.data?.message || error.message));
         } finally {
             setIsSubmitting(false);
         }
@@ -92,6 +94,7 @@ function ApplicationForm({ isOpen, onClose }) {
 
     return (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+            <ToastContainer position="bottom-right" autoClose={5000} />
             <div ref={formRef} className="p-5 border w-11/12 max-w-md h-auto max-h-[90vh] overflow-auto shadow-lg rounded-md bg-white">
                 <div className="text-center">
                     <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">Apply for Vikram Aviation Job Training</h3>
