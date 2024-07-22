@@ -12,11 +12,11 @@ function OurStory() {
 
     return (
         <div className='text-center'>
-            <h1 className='text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 mt-10'>
+            <h1 className='text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 mt-8'>
                 Our <span className='text-yellow-500'>Story</span>
             </h1>
 
-            <div className='flex flex-col md:flex-row mt-14 justify-between items-center mx-4 md:mx-14'>
+            <div className='flex flex-col md:flex-row mt-10 justify-between items-center mx-4 md:mx-14'>
                 <div className='w-full md:w-1/2 md:pr-8'>
                     <h1 className='text-2xl font-bold'>
                         What Do You <span className='text-yellow-500'>Want To Know</span>

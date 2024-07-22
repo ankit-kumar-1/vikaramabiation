@@ -84,19 +84,19 @@ function WhatWeDo() {
   };
 
   return (
-    <div className='mt-16 bg-gray-100 p-4 sm:p-8'>
-      <div className='text-center mb-8'>
-        <h1 className=' text-6xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 '>
+    <div className='mt-8 sm:mt-16 bg-gray-100 p-4 sm:p-8'>
+      <div className='text-center mb-6 sm:mb-8'>
+        <h1 className='text-3xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-2 sm:pb-4 mt-6 sm:mt-10'>
           What <span className='text-yellow-500'>We Do</span>
         </h1>
-        <p className='text-md sm:text-xl p-5'>
+        <p className='text-sm sm:text-xl p-3 sm:p-5'>
           We offer a comprehensive range of aircraft interior products and services, <br className='hidden sm:inline' />
           including upholstery, leather, seat cushion & headset repairs, as well as the supply of ready-to-install components, meeting FAA standards.
         </p>
       </div>
 
       <div
-        className='relative bg-white rounded-lg p-4 sm:p-6 overflow-hidden mx-10'
+        className='relative bg-white rounded-lg p-4 sm:p-6 overflow-hidden mx-2 sm:mx-10'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -105,24 +105,24 @@ function WhatWeDo() {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {services.map((service, index) => (
-            <div key={index} className='w-full flex-shrink-0 px-20 py-12'>
-              <h1 className='text-4xl sm:text-2xl pb-2 flex items-center justify-center'>
-                <span className=' text-6xl font-bold sm:text-4xl pr-4 sm:pr-10 text-yellow-500'>{service.icon}</span>
+            <div key={index} className='w-full flex-shrink-0 px-4 sm:px-20 py-6 sm:py-12'>
+              <h1 className='text-xl sm:text-2xl md:text-4xl pb-2 flex items-center justify-center'>
+                <span className='text-3xl sm:text-4xl md:text-6xl font-bold pr-2 sm:pr-4 md:pr-10 text-yellow-500'>{service.icon}</span>
                 {service.title}
               </h1>
-              <p className='text-base sm:text-xl pl-24'>{service.description}</p>
+              <p className='text-xs sm:text-sm md:text-base pl-2 sm:pl-12 md:pl-24'>{service.description}</p>
             </div>
           ))}
         </div>
         <button
           onClick={prevSlide}
-          className=' text-xl px-3 py-3 absolute left-2 sm:left-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 text-center'
+          className='text-lg sm:text-xl px-2 py-2 sm:px-3 sm:py-3 absolute left-1 sm:left-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white rounded-full z-10 transition-opacity duration-300 hover:opacity-75 text-center'
         >
           &lt;
         </button>
         <button
           onClick={nextSlide}
-          className=' text-xl px-3 py-3 absolute right-2 sm:right-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white p-2 rounded-full z-10 transition-opacity duration-300 hover:opacity-75 '
+          className='text-lg sm:text-xl px-2 py-2 sm:px-3 sm:py-3 absolute right-1 sm:right-4 top-1/2 hover:bg-gray-400 transform -translate-y-1/2 bg-yellow-500 text-white rounded-full z-10 transition-opacity duration-300 hover:opacity-75'
         >
           &gt;
         </button>

@@ -22,7 +22,7 @@ function OurJobTraining({ trainingList }) {
     return (
         <div className='m-4 md:m-8 lg:m-12'>
             <div className='text-center'>
-                <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-2 md:pb-4'>
+                <h1 className='text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 mt-10'>
                     On Job <span className='text-yellow-500'>Training</span>
                 </h1>
             </div>

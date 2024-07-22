@@ -58,7 +58,7 @@ function ApplicationForm({ isOpen, onClose }) {
 
         setIsSubmitting(true);
         try {
-            const response = await axios.post('http://localhost/vikramaviation/vikramaviation.php', formData, {
+            const response = await axios.post('https://vikramaviation.com//api/vikramaviation.php', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

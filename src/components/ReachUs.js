@@ -26,7 +26,7 @@ function ContactForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost/vikramaviation/reachForm.php', JSON.stringify(formData), {
+            const response = await axios.post('https://vikramaviation.com/api/reachForm.php', JSON.stringify(formData), {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -142,7 +142,7 @@ function ContactForm() {
         <div className="container px-4">
             <ToastContainer position="bottom-right" autoClose={5000} />
             <div className='text-center mt-10 sm:mt-20'>
-                <h1 className='text-6xl sm:text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4'>
+                <h1 className='text-4xl font-bold border-b-2 border-gray-500 inline-block pb-4 mt-10'>
                     Reach <span className='text-yellow-500'>Us</span>
                 </h1>
             </div>
@@ -185,7 +185,7 @@ function ContactForm() {
                             </iframe>
                         </div>
 
-                        <div className='mt-2 hover:shadow-xl w-72 sm:w-1/2'>
+                        <div className='mt-3 hover:shadow-xl w-full sm:w-1/2'>
                             <h2 className="text-lg sm:text-md md:text-lg lg:text-xl font-bold text-yellow-500 mb-2 sm:mb-4">Vikram Aviation Pvt Ltd</h2>
                             <p className="text-sm text-start px-5">ISO 9001:2015 Certified</p>
                             <div className="flex flex-col md:flex-row justify-between p-2 gap-2">

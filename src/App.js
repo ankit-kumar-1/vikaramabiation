@@ -8,17 +8,23 @@ import ReachUs from './components/ReachUs';
 import WhatWeDo from './components/WhatWeDo';
 import Footer from './components/Footer';
 import './App.css';
+import sliderImg1 from './img/slider_img1.jpg';
+import sliderImg4 from './img/slider_img4.jpg';
+import sliderImg5 from './img/slider_img5.jpg';
+import training1 from './img/training_1.jpg';
+import training2 from './img/training_2.jpg';
+import training3 from './img/training_3.jpg'
 
 const slides = [
-  "https://vikramaviation.com/image/slider_img1.jpg",
-  "https://vikramaviation.com/image/slider_img4.jpg",
-  "https://vikramaviation.com/image/slider_img5.jpg"
+  sliderImg1,
+  sliderImg4,
+  sliderImg5
 ];
 
 const trainingList = [
-  "https://vikramaviation.com/image/training_1.jpg",
-  "https://vikramaviation.com/image/training_2.jpg",
-  "https://vikramaviation.com/image/training_3.jpg"
+  training1,
+  training2,
+  training3
 ];
 
 const App = () => {
