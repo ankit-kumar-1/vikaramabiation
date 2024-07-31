@@ -55,10 +55,10 @@ const Footer = () => {
                 </div>
 
                 <div className="flex sm:flex-row gap-6 sm:gap-10 text-2xl text-gray-900 justify-center items-center p-4 sm:p-6 m-2 sm:m-4">
-                    <Link to="https://www.facebook.com/demorgia2012/" className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" target="blank">
+                    <Link to="https://www.facebook.com/p/Vikram-Aviation-Pvt-Ltd-Gurgaon-100064402731038/?_rdr" className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" target="blank">
                         <FaFacebook />
                     </Link>
-                    <Link to="https://www.linkedin.com/company/demorgia-consulting-services-pvt-ltd/mycompany/" className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" target="blank">
+                    <Link to="https://www.linkedin.com/company/vikram-aviation-pvt-ltd---india/?originalSubdomain=in" className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" target="blank">
                         <ImLinkedin />
                     </Link>
                     <Link to="https://x.com/i/flow/login?redirect_after_login=%2Fdemorgia1" className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110" target="blank">

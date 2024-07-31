@@ -19,7 +19,7 @@ const Section = ({ title, desc, isVisible, setIsVisible }) => {
             </div>
             {isVisible && (
                 <p className="text-md">
-                    <span className="text-md font-semibold">Our journey began in 1996,</span>{desc}
+                    <span className="text-sm md:text-base lg:text-lg font-semibold">Our journey began in 1996,</span>{desc}
                 </p>
             )}
         </div>
@@ -34,7 +34,7 @@ const ShowHide = () => {
     };
 
     return (
-        <div className="m-4 shadow-xl">
+        <div className="text-sm md:text-base lg:text-lg m-4 shadow-xl">
             <Section
 
                 title="History"

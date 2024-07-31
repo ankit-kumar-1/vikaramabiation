@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
     const [current, setCurrent] = useState(0);
@@ -28,24 +29,56 @@ function Carousel({ slides, autoSlide = true, autoSlideInterval = 3000 }) {
                     <div className='relative w-full h-full flex-shrink-0' key={index}>
                         <img src={s} alt={`carousel-${index}`} className='w-full h-full object-cover' />
                         <div className='absolute inset-0 bg-black bg-opacity-50'></div>
-                        <div className='absolute inset-x-0 top-0 flex flex-col justify-start items-center text-white p-4 text-center'>
-                            <h1 className='text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 md:mb-4'>An ISO 9001:2015 Certified Company</h1>
-                            <h2 className='text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2 md:mb-4 text-yellow-500'>
-                                {index === 0 && 'Aviation Services'}
-                                {index === 1 && 'Maintenance Experts'}
-                                {index === 2 && 'High-Flying Support'}
-                            </h2>
-                            <h2 className='text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 md:mb-4'>
-                                {index === 0 && 'Creative & Professional'}
-                                {index === 1 && 'Precision and Excellence'}
-                                {index === 2 && 'Innovative & Expertise'}
-                            </h2>
-                            <p className='text-xs sm:text-sm md:text-lg lg:text-2xl font-bold max-w-4xl'>
-                                {index === 0 && 'Unlocking Skies with Certified Engineering Excellence - Elevating Aviation Services through Creativity and Professionalism.'}
-                                {index === 1 && 'Welcome to Your Trusted Aviation Maintenance Experts! With a relentless commitment to precision and excellence, we ensure the skies remain safe for all.'}
-                                {index === 2 && 'Welcome to High Flying Aviation Maintenance Support - Where Innovation Meets Expertise! Trust us to keep your aircraft soaring with precision and creativity.'}
-                            </p>
-                        </div>
+                        <AnimatePresence mode="wait">
+                            {current === index && (
+                                <motion.div
+                                    className='absolute inset-x-0 top-0 flex flex-col justify-start items-center text-white p-4 text-center'
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <motion.h1
+                                        className='text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 md:mb-4'
+                                        initial={{ y: -20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ delay: 0.2, duration: 0.5 }}
+                                    >
+                                        An ISO 9001:2015 Certified Company
+                                    </motion.h1>
+                                    <motion.h2
+                                        className='text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-1 sm:mb-2 md:mb-4 text-yellow-500'
+                                        initial={{ scale: 0.5, opacity: 0 }}
+                                        animate={{ scale: 1, opacity: 1 }}
+                                        transition={{ delay: 0.4, duration: 0.5 }}
+                                    >
+                                        {index === 0 && 'Aviation Services'}
+                                        {index === 1 && 'Maintenance Experts'}
+                                        {index === 2 && 'High-Flying Support'}
+                                    </motion.h2>
+                                    <motion.h2
+                                        className='text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 md:mb-4'
+                                        initial={{ x: -50, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        transition={{ delay: 0.6, duration: 0.5 }}
+                                    >
+                                        {index === 0 && 'Creative & Professional'}
+                                        {index === 1 && 'Precision and Excellence'}
+                                        {index === 2 && 'Innovative & Expertise'}
+                                    </motion.h2>
+                                    <motion.p
+                                        className='text-xs sm:text-sm md:text-lg lg:text-2xl font-bold max-w-4xl'
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ delay: 0.8, duration: 0.5 }}
+                                    >
+                                        {index === 0 && 'Unlocking Skies with Certified Engineering Excellence - Elevating Aviation Services through Creativity and Professionalism.'}
+                                        {index === 1 && 'Welcome to Your Trusted Aviation Maintenance Experts! With a relentless commitment to precision and excellence, we ensure the skies remain safe for all.'}
+                                        {index === 2 && 'Welcome to High Flying Aviation Maintenance Support - Where Innovation Meets Expertise! Trust us to keep your aircraft soaring with precision and creativity.'}
+                                    </motion.p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 ))}
             </div>

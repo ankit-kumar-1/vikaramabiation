@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../img/logo.jpg';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -12,17 +13,34 @@ function Navbar() {
 
     const navItems = ['Home', 'About Us', 'What We Do', 'AME Training', 'Reach Us'];
 
+    const variants = {
+        open: { opacity: 1, y: 0 },
+        closed: { opacity: 0, y: "-100%" },
+    }
+
     return (
-        <nav className='fixed top-0 left-0 w-full flex flex-wrap justify-between items-center border-b-2 px-4 md:px-7 bg-gray-100 bg-opacity-85 z-50'>
-            <Link className="flex items-center text-lg md:text-xl py-2 font-bold" to="/">
-                <img src={logo} alt="logo" className='pr-2 md:pr-5 w-12 md:w-20' />
-                Vikram <span className="text-lg md:text-xl text-yellow-500 px-1 md:px-2">Aviation</span> Pvt Ltd
-            </Link>
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            className='fixed top-0 left-0 w-full flex flex-wrap justify-between items-center border-b-2 px-4 md:px-7 bg-gray-100 bg-opacity-85 z-50'
+        >
+            <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                <Link className="flex items-center text-lg md:text-xl py-2 font-bold" to="/">
+                    <img src={logo} alt="logo" className='pr-2 md:pr-5 w-12 md:w-20' />
+                    Vikram <span className="text-lg md:text-xl text-yellow-500 px-1 md:px-2">Aviation</span> Pvt Ltd
+                </Link>
+            </motion.div>
 
             {/* Hamburger menu button */}
-            <button
+            <motion.button
                 onClick={toggleMenu}
                 className="md:hidden text-gray-600 focus:outline-none"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
             >
                 <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
                     {isOpen ? (
@@ -31,28 +49,44 @@ function Navbar() {
                         <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
                     )}
                 </svg>
-            </button>
+            </motion.button>
 
             {/* Navigation menu */}
-            <div className={`${isOpen ? 'block' : 'hidden'} md:block w-full md:w-auto`}>
-                <ul className="flex flex-col md:flex-row md:space-x-4">
-                    {navItems.map((item, index) => {
-                        const path = item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`;
-                        return (
-                            <li key={index} className="text-center">
-                                <Link
-                                    to={path}
-                                    className={`block px-3 py-2 text-md md:text-lg font-bold ${location.pathname === path ? 'text-yellow-600' : 'text-gray-600'} hover:bg-yellow-300 rounded-md transition-all duration-300 ease-in-out transform hover:scale-110`}
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {item}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-        </nav>
+            <AnimatePresence>
+                {(isOpen || window.innerWidth > 768) && (
+                    <motion.div
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        variants={variants}
+                        transition={{ duration: 0.5 }}
+                        className={`md:block w-full md:w-auto`}
+                    >
+                        <ul className="flex flex-col md:flex-row md:space-x-4">
+                            {navItems.map((item, index) => {
+                                const path = item === 'Home' ? '/' : `/${item.toLowerCase().replace(/\s+/g, '-')}`;
+                                return (
+                                    <motion.li
+                                        key={index}
+                                        className="text-center"
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.9 }}
+                                    >
+                                        <Link
+                                            to={path}
+                                            className={`block px-3 py-2 text-md md:text-lg font-bold ${location.pathname === path ? 'text-yellow-600' : 'text-gray-600'} hover:bg-yellow-300 rounded-md transition-all duration-300 ease-in-out`}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item}
+                                        </Link>
+                                    </motion.li>
+                                );
+                            })}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.nav>
     );
 }
 

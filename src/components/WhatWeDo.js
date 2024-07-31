@@ -4,7 +4,6 @@ import { FaRegHandPeace, FaRegLightbulb, FaCartArrowDown } from "react-icons/fa"
 import { MdElectricBolt } from "react-icons/md";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 
-
 function WhatWeDo() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -51,7 +50,6 @@ function WhatWeDo() {
       description: "This cleaning is a light exterior cleaning intended to maintain a favorable appearance of the aircraft's exterior between major detailed cleaning events. It is intended to address areas of the exterior that need immediate attention and plainly visible to owners. When it comes to washing an aircraft's exterior, there are two basic types of methods; Wet Method & Dry Method The wet wash is the most familiar: Spray on water and cleaning agent (soap), scrub the surface, rinse and dry."
     }
   ];
-
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % services.length);
@@ -106,11 +104,11 @@ function WhatWeDo() {
         >
           {services.map((service, index) => (
             <div key={index} className='w-full flex-shrink-0 px-4 sm:px-20 py-6 sm:py-12'>
-              <h1 className='text-xl sm:text-2xl md:text-4xl pb-2 flex items-center justify-center'>
-                <span className='text-3xl sm:text-4xl md:text-6xl font-bold pr-2 sm:pr-4 md:pr-10 text-yellow-500'>{service.icon}</span>
+              <h1 className='text-xl sm:text-2xl md:text-4xl pb-2 flex items-center justify-center animate-bounce'>
+                <span className='text-3xl sm:text-4xl md:text-6xl font-bold pr-2 sm:pr-4 md:pr-10 text-yellow-500 animate-pulse'>{service.icon}</span>
                 {service.title}
               </h1>
-              <p className='text-xs sm:text-sm md:text-base pl-2 sm:pl-12 md:pl-24'>{service.description}</p>
+              <p className='text-sm md:text-base lg:text-lg pl-2 sm:pl-12 md:pl-24'>{service.description}</p>
             </div>
           ))}
         </div>
